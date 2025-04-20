@@ -31,13 +31,13 @@ const Header = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <a href="#" className="flex items-center">
-            <Image 
+            <img 
               src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=60" 
               alt="Test Placeholder Logo" 
-              width={200} 
+              width={200}
               height={60}
               className={cn(
-                "transition-all duration-300 object-contain",
+                "transition-all duration-300 object-contain h-10",
                 isScrolled ? "filter brightness-100" : "filter brightness-0 invert"
               )}
             />
