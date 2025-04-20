@@ -11,7 +11,7 @@ const Services = () => {
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-cascade-green/10 rounded-full z-0"></div>
               <img
-                src="/lovable-uploads/b13c0b91-cc95-474a-a79a-acf213f402e4.png"
+                src="/lovable-uploads/1165c828-3bfe-4627-a6e4-efdefb7f9a87.png"
                 alt="Cascade Bin Butlers Premium Valet Trash Service Logo"
                 className="rounded-lg shadow-xl w-full h-[500px] object-contain relative z-10 bg-cascade-green"
               />
@@ -59,4 +59,3 @@ const Services = () => {
 };
 
 export default Services;
-
