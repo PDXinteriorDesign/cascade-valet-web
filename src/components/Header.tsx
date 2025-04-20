@@ -32,8 +32,8 @@ const Header = () => {
         <div className="flex-shrink-0">
           <a href="#" className="flex items-center">
             <Image 
-              src="/cascade-bin-butlers-logo.png" 
-              alt="Cascade Bin Butlers Logo" 
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=60" 
+              alt="Test Placeholder Logo" 
               width={200} 
               height={60}
               className={cn(
