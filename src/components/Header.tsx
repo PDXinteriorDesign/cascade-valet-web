@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -36,7 +37,7 @@ const Header = () => {
               width={200} 
               height={60}
               className={cn(
-                "transition-all duration-300",
+                "transition-all duration-300 object-contain",
                 isScrolled ? "filter brightness-100" : "filter brightness-0 invert"
               )}
             />
@@ -146,3 +147,4 @@ const Header = () => {
 };
 
 export default Header;
+

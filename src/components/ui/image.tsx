@@ -24,9 +24,14 @@ const Image: React.FC<ImageProps> = ({
       width={width} 
       height={height} 
       className={cn("object-contain", className)} 
+      onError={(e) => {
+        console.error('Logo image failed to load:', src);
+        e.currentTarget.style.display = 'none';
+      }}
       {...props} 
     />
   );
 };
 
 export default Image;
+
