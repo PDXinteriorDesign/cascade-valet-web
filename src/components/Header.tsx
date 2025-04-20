@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Image from "@/components/ui/image";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,16 +30,12 @@ const Header = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <a href="#" className="flex items-center">
-            <img 
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&q=60" 
-              alt="Test Placeholder Logo" 
-              width={200}
-              height={60}
-              className={cn(
-                "transition-all duration-300 object-contain h-10",
-                isScrolled ? "filter brightness-100" : "filter brightness-0 invert"
-              )}
-            />
+            <span className={cn(
+              "text-2xl font-bold font-playfair tracking-tight transition-colors",
+              isScrolled ? "text-cascade-green" : "text-white"
+            )}>
+              Cascade Bin Butlers
+            </span>
           </a>
         </div>
 
