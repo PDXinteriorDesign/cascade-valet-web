@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Trash, Home, CheckCircle, Truck, Sparkles } from "lucide-react";
@@ -41,15 +40,11 @@ const Services = () => {
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-center">
                 <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                <span>Nightly Service Reports</span>
+                <span>Weekly Reports</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
                 <span>Recycling Programs Included</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                <span>Pet Waste Stations</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
