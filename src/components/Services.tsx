@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Trash, Home, CheckCircle, Truck, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
@@ -8,6 +7,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import ServiceModal from "./ServiceModal";
 
 const ServiceDetail = ({ 
   title, 
@@ -40,13 +40,8 @@ const ServiceDetail = ({
 const Services = () => {
   const [openService, setOpenService] = useState<string | null>(null);
 
-  const toggleService = (service: string) => {
-    if (openService === service) {
-      setOpenService(null);
-    } else {
-      setOpenService(service);
-    }
-  };
+  const handleServiceOpen = (service: string) => setOpenService(service);
+  const handleServiceClose = () => setOpenService(null);
 
   return (
     <section id="services" className="py-20 bg-white">
@@ -125,104 +120,13 @@ const Services = () => {
               </p>
               <div className="text-center">
                 <Button 
-                  onClick={() => toggleService('valetTrash')} 
-                  variant="outline" 
+                  onClick={() => handleServiceOpen('valetTrash')} 
+                  variant="outline"
                   className="border-cascade-green text-cascade-green hover:bg-cascade-green hover:text-white"
                 >
-                  {openService === 'valetTrash' ? 'Show Less' : 'Learn More'}
+                  Learn More
                 </Button>
               </div>
-              
-              {openService === 'valetTrash' && (
-                <div className="mt-6">
-                  <ServiceDetail 
-                    title="About Valet Trash" 
-                    isOpen={true} 
-                    onToggle={() => {}}
-                  >
-                    <div className="space-y-6">
-                      <p className="text-cascade-slate">
-                        Door-to-door scheduled trash and recycling pickup for multifamily communities.
-                        Valet trash and recycling is a premium amenity for residents, designed to streamline 
-                        and simplify waste processes at your property.
-                      </p>
-                      
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <Card className="p-4">
-                          <h4 className="text-lg font-semibold mb-3 text-cascade-green">For Residents</h4>
-                          <ul className="space-y-2">
-                            <li className="flex items-start">
-                              <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                              <span>No more long walks to dumpsters at night or in bad weather</span>
-                            </li>
-                            <li className="flex items-start">
-                              <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                              <span>Cleaner hallways and better curb appeal</span>
-                            </li>
-                            <li className="flex items-start">
-                              <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                              <span>Crime deterrent</span>
-                            </li>
-                          </ul>
-                        </Card>
-                        
-                        <Card className="p-4">
-                          <h4 className="text-lg font-semibold mb-3 text-cascade-green">For Property Managers</h4>
-                          <ul className="space-y-2">
-                            <li className="flex items-start">
-                              <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                              <span>Increase net operating income</span>
-                            </li>
-                            <li className="flex items-start">
-                              <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                              <span>A trained maintenance member on every doorstep</span>
-                            </li>
-                            <li className="flex items-start">
-                              <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                              <span>Maintenance of property appearance</span>
-                            </li>
-                            <li className="flex items-start">
-                              <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                              <span>Increase in lease renewals</span>
-                            </li>
-                          </ul>
-                        </Card>
-                      </div>
-                      
-                      <div className="bg-cascade-ivory p-4 rounded-lg">
-                        <h4 className="text-lg font-semibold mb-3 text-cascade-green">Why Choose Us?</h4>
-                        <ul className="space-y-2">
-                          <li className="flex items-start">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-medium">Nationwide availability</span>
-                              <p className="text-sm text-cascade-slate">We're committed to growing our footprint without sacrificing quality service.</p>
-                            </div>
-                          </li>
-                          <li className="flex items-start">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-medium">99% show up rate</span>
-                              <p className="text-sm text-cascade-slate">The stats don't lie. We show up when we say we will—short and simple.</p>
-                            </div>
-                          </li>
-                          <li className="flex items-start">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-medium">5–7 day service options</span>
-                              <p className="text-sm text-cascade-slate">Valet, bulk, trash outs—we do it all on a schedule that works for you.</p>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                      
-                      <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
-                        Request a Quote
-                      </Button>
-                    </div>
-                  </ServiceDetail>
-                </div>
-              )}
             </div>
             
             {/* Trash Out Card */}
@@ -236,70 +140,13 @@ const Services = () => {
               </p>
               <div className="text-center">
                 <Button 
-                  onClick={() => toggleService('trashOut')} 
-                  variant="outline" 
+                  onClick={() => handleServiceOpen('trashOut')} 
+                  variant="outline"
                   className="border-cascade-green text-cascade-green hover:bg-cascade-green hover:text-white"
                 >
-                  {openService === 'trashOut' ? 'Show Less' : 'Learn More'}
+                  Learn More
                 </Button>
               </div>
-              
-              {openService === 'trashOut' && (
-                <div className="mt-6">
-                  <ServiceDetail 
-                    title="Trash Out Service" 
-                    isOpen={true} 
-                    onToggle={() => {}}
-                  >
-                    <div className="space-y-6">
-                      <p className="text-cascade-slate">
-                        This service is perfect for those units that are left a total mess or large junk 
-                        left by residents that needs to be removed near dumpsters. This saves maintenance 
-                        staff from needing to break down furniture and cleaning out units, saving your team 
-                        time and reducing their risk of injury lifting heavy items into trash bins.
-                      </p>
-                      
-                      <p className="text-cascade-slate">
-                        Our staff will come remove the items safely and in a timely manner. Whether it is a 
-                        ROUTINE SCHEDULE or a ONE TIME PICK UP we will remove the junk from your property or 
-                        individual units.
-                      </p>
-                      
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <Card className="p-4">
-                          <CardContent className="p-0">
-                            <h4 className="text-lg font-semibold mb-3 text-cascade-green">One Time Pick Up</h4>
-                            <p className="text-cascade-slate font-medium">You Call Us as You Need Us!</p>
-                            <p className="text-cascade-slate mt-2">
-                              This is a great option for smaller properties that only occasionally have items left 
-                              on the property. We charge per item and in most cases, junk is hauled away within 72 
-                              hours or less from the time you call.
-                            </p>
-                            <Button className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
-                              Request Pickup
-                            </Button>
-                          </CardContent>
-                        </Card>
-                        
-                        <Card className="p-4">
-                          <CardContent className="p-0">
-                            <h4 className="text-lg font-semibold mb-3 text-cascade-green">Trash Out Services</h4>
-                            <p className="text-cascade-slate font-medium">Evicted Resident? Abandoned Property?</p>
-                            <p className="text-cascade-slate mt-2">
-                              Whether it is a vacated property or an evicted resident that left belongings behind, 
-                              Cascade Bin Butlers can help. Our crew will come and remove all large furniture and bag 
-                              loose items to safely dispose of them.
-                            </p>
-                            <Button className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
-                              Get a Quote
-                            </Button>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </div>
-                  </ServiceDetail>
-                </div>
-              )}
             </div>
             
             {/* Bulk Hauling Card */}
@@ -313,65 +160,13 @@ const Services = () => {
               </p>
               <div className="text-center">
                 <Button 
-                  onClick={() => toggleService('bulkHauling')} 
-                  variant="outline" 
+                  onClick={() => handleServiceOpen('bulkHauling')} 
+                  variant="outline"
                   className="border-cascade-green text-cascade-green hover:bg-cascade-green hover:text-white"
                 >
-                  {openService === 'bulkHauling' ? 'Show Less' : 'Learn More'}
+                  Learn More
                 </Button>
               </div>
-              
-              {openService === 'bulkHauling' && (
-                <div className="mt-6">
-                  <ServiceDetail 
-                    title="Avoid Dumpster Weight Fees" 
-                    isOpen={true} 
-                    onToggle={() => {}}
-                  >
-                    <div className="space-y-6">
-                      <h3 className="text-xl font-semibold text-cascade-green">Bulk Trash Hauling and Waste Leveling for Residential Complexes</h3>
-                      <p className="text-cascade-slate">
-                        Dumpster weight fees, often referred to as "overage charges" or "tonnage fees", 
-                        are additional fees charged by a city, municipality, or waste disposal company 
-                        when a rented dumpster exceeds a specified weight limit.
-                      </p>
-                      <p className="text-cascade-slate">
-                        As a property manager, these fees can negatively impact your monthly budget. 
-                        If you are looking for ways to save money for your complex, hiring professional 
-                        trash levelers could be a cost-effective choice.
-                      </p>
-                      
-                      <div className="bg-cascade-ivory p-6 rounded-lg">
-                        <h4 className="text-lg font-semibold mb-4 text-cascade-green">No more dumpster weight fees!</h4>
-                        <h5 className="font-medium text-cascade-slate mb-2">What is the Benefit of Bulk Trash Hauling and Waste Leveling?</h5>
-                        <p className="text-cascade-slate">
-                          Cascade Bin Butlers specializes in maximizing the capacity of waste containers 
-                          by ensuring that trash is evenly distributed and compacted.
-                        </p>
-                        <p className="text-cascade-slate mt-3">
-                          Often, when dumpsters are filled haphazardly, they can quickly appear full even 
-                          when there's still usable space. This premature filling can lead to increased 
-                          waste disposal costs and inefficient use of resources.
-                        </p>
-                        <p className="text-cascade-slate mt-3">
-                          Our Waste Leveling and Bulk Hauling team uses specialized equipment and techniques 
-                          to redistribute the waste evenly within the container, compressing it to create 
-                          more space for additional garbage.
-                        </p>
-                        <p className="text-cascade-slate mt-3">
-                          By ensuring that every inch of the dumpster is effectively utilized, property 
-                          managers now have an eco-friendly and cost-effective solution. Now reducing the 
-                          frequency of waste pickups and additional dumpster weight fees.
-                        </p>
-                      </div>
-                      
-                      <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
-                        Request a Quote
-                      </Button>
-                    </div>
-                  </ServiceDetail>
-                </div>
-              )}
             </div>
             
             {/* Pressure Washing Card */}
@@ -385,106 +180,237 @@ const Services = () => {
               </p>
               <div className="text-center">
                 <Button 
-                  onClick={() => toggleService('pressureWashing')} 
-                  variant="outline" 
+                  onClick={() => handleServiceOpen('pressureWashing')} 
+                  variant="outline"
                   className="border-cascade-green text-cascade-green hover:bg-cascade-green hover:text-white"
                 >
-                  {openService === 'pressureWashing' ? 'Show Less' : 'Learn More'}
+                  Learn More
                 </Button>
               </div>
-              
-              {openService === 'pressureWashing' && (
-                <div className="mt-6">
-                  <ServiceDetail 
-                    title="Power Washing Services" 
-                    isOpen={true} 
-                    onToggle={() => {}}
-                  >
-                    <div className="space-y-6">
-                      <h3 className="text-xl font-semibold text-cascade-green">
-                        Recurring or One-Time Pressure Washing for Residential Buildings
-                      </h3>
-                      <p className="text-cascade-slate">
-                        Power washing, also known as pressure washing, is a cleaning method that uses 
-                        pressurized water to remove dirt, mold, mildew, algae, stains, and other 
-                        contaminants from the exterior surfaces of residential buildings.
-                      </p>
-                      
-                      <p className="text-cascade-slate">
-                        We service multifamily living facilities including apartment complexes, condominiums, 
-                        assisted living facilities, senior living facilities, and college dorm buildings.
-                      </p>
-                      
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <Card className="p-4">
-                          <CardContent className="p-0">
-                            <h4 className="text-lg font-semibold mb-3 text-cascade-green">Reoccurring Power Washing</h4>
-                            <p className="text-cascade-slate font-medium">Schedule Reoccurring Pressure Washing</p>
-                            <p className="text-cascade-slate mt-2">
-                              This is a great option to maintain the appearance of your residential complex. 
-                              We establish a rate based on your complex size and needs, show up on your desired 
-                              dates, power wash the property in a timely manner, and according to your set 
-                              schedule we will be out again without any needed assistance or added stress to you.
-                            </p>
-                          </CardContent>
-                        </Card>
-                        
-                        <Card className="p-4">
-                          <CardContent className="p-0">
-                            <h4 className="text-lg font-semibold mb-3 text-cascade-green">One Time Power Washing</h4>
-                            <p className="text-cascade-slate font-medium">You Call Us When You Need Us</p>
-                            <p className="text-cascade-slate mt-2">
-                              This is a great option for properties that aren't quite sure how often they need 
-                              power washing on their building or property. Call us up when needed and we can be 
-                              out within 72 hours or less! We charge based on the size and your exact property needs.
-                            </p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                      
-                      <div className="bg-cascade-ivory p-6 rounded-lg">
-                        <h4 className="text-lg font-semibold mb-3 text-cascade-green">What Can Be Power Washed?</h4>
-                        <p className="text-cascade-slate mb-3">
-                          We can power wash more than the exterior of your residential buildings
-                        </p>
-                        <div className="grid grid-cols-2 gap-3">
-                          <div className="flex items-center">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                            <span>Patio/Balcony</span>
-                          </div>
-                          <div className="flex items-center">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                            <span>Courtyard</span>
-                          </div>
-                          <div className="flex items-center">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                            <span>Parking Lot</span>
-                          </div>
-                          <div className="flex items-center">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                            <span>Dumpster Trash Area</span>
-                          </div>
-                          <div className="flex items-center">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                            <span>Playground</span>
-                          </div>
-                          <div className="flex items-center">
-                            <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
-                            <span>Sidewalk</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
-                        Request a Quote
-                      </Button>
-                    </div>
-                  </ServiceDetail>
-                </div>
-              )}
             </div>
           </div>
         </div>
+
+        {/* Modals for Each Service */}
+        <ServiceModal open={openService === 'valetTrash'} onOpenChange={handleServiceClose} title="About Valet Trash">
+          <div className="space-y-6">
+            <p className="text-cascade-slate">
+              Door-to-door scheduled trash and recycling pickup for multifamily communities. Valet trash and recycling is a premium amenity for residents, designed to streamline and simplify waste processes at your property. Our Cascade Bin Butlers walk doorstep to doorstep, collecting trash and recyclables to safely and cleanly dispose of them in your onsite waste facilities.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="p-4">
+                <h4 className="text-lg font-semibold mb-3 text-cascade-green">For Residents</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>No need to make long walks to dumpsters at night or in bad weather</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Cleaner hallways and better curb appeal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Crime deterrent</span>
+                  </li>
+                </ul>
+              </Card>
+              <Card className="p-4">
+                <h4 className="text-lg font-semibold mb-3 text-cascade-green">For Property Managers</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Increase net operating income</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>A trained maintenance member on every doorstep</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Maintenance of property appearance</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Increase in lease renewals</span>
+                  </li>
+                </ul>
+              </Card>
+            </div>
+            <div className="bg-cascade-ivory p-4 rounded-lg">
+              <h4 className="text-lg font-semibold mb-3 text-cascade-green">Why Choose Cascade Bin Butlers?</h4>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">Nationwide availability</span>
+                    <p className="text-sm text-cascade-slate">We're committed to growing our footprint without sacrificing quality service.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">99% show up rate</span>
+                    <p className="text-sm text-cascade-slate">The stats don’t lie. We show up when we say we will—short and simple.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">5–7 day service options</span>
+                    <p className="text-sm text-cascade-slate">Valet, bulk, trash outs—we do it all on a schedule that works for you.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">Recycling Programs Included</span>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">Fully Licensed and Insured</span>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">Background Checked Staff</span>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">Doorstep Pickup</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4">
+              Request a Quote
+            </Button>
+          </div>
+        </ServiceModal>
+        <ServiceModal open={openService === 'trashOut'} onOpenChange={handleServiceClose} title="Trash Out Service">
+          <div className="space-y-6">
+            <p className="text-cascade-slate">
+              This service is perfect for units left a total mess or with large junk by residents that needs to be removed near dumpsters. This saves your maintenance staff from needing to break down furniture and clean out units, reducing risk of injury lifting heavy items into trash bins. Our Cascade Bin Butlers staff will safely and promptly remove the items.
+            </p>
+            <p className="text-cascade-slate">
+              Whether it's ROUTINE SCHEDULE or a ONE TIME PICK UP, we will remove junk from your property or individual units.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="p-4">
+                <h4 className="text-lg font-semibold mb-3 text-cascade-green">One Time Pick Up</h4>
+                <p className="text-cascade-slate font-medium">You Call Us as You Need Us!</p>
+                <p className="text-cascade-slate mt-2">
+                  Great for properties that only occasionally have items left on the property. We charge per item and in most cases, junk is hauled away within 72 hours or less from your call.
+                </p>
+                <Button className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
+                  Request Pickup
+                </Button>
+              </Card>
+              <Card className="p-4">
+                <h4 className="text-lg font-semibold mb-3 text-cascade-green">Trash Out Services</h4>
+                <p className="text-cascade-slate font-medium">Evicted Resident? Abandoned Property?</p>
+                <p className="text-cascade-slate mt-2">
+                  Whether a vacated property or evicted resident left belongings behind, Cascade Bin Butlers can help. Our crew will remove all large furniture and bag loose items to safely dispose of them.
+                </p>
+                <Button className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
+                  Get a Quote
+                </Button>
+              </Card>
+            </div>
+          </div>
+        </ServiceModal>
+        <ServiceModal open={openService === 'bulkHauling'} onOpenChange={handleServiceClose} title="Avoid Dumpster Weight Fees">
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-cascade-green">
+              Bulk Trash Hauling and Waste Leveling for Residential Complexes
+            </h3>
+            <p className="text-cascade-slate">
+              Dumpster weight fees, sometimes called "overage" or "tonnage" fees, are extra charges when a dumpster exceeds its specified weight limit. This impacts your monthly budget. Our professional trash levelers and haulers can be a cost-effective solution.
+            </p>
+            <div className="bg-cascade-ivory p-6 rounded-lg">
+              <h4 className="text-lg font-semibold mb-4 text-cascade-green">No more dumpster weight fees!</h4>
+              <h5 className="font-medium text-cascade-slate mb-2">What is the Benefit of Bulk Trash Hauling and Waste Leveling?</h5>
+              <p className="text-cascade-slate">
+                Cascade Bin Butlers specializes in maximizing the capacity of waste containers by leveling and compacting trash.
+              </p>
+              <p className="text-cascade-slate mt-3">
+                If dumpsters are filled haphazardly, they fill prematurely and increase your costs. Our team uses equipment and techniques to redistribute and compress waste, maximizing usable space.
+              </p>
+              <p className="text-cascade-slate mt-3">
+                This ensures every inch of your dumpster is utilized—reducing waste pickups and so avoiding unnecessary fees.
+              </p>
+            </div>
+            <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4">
+              Request a Quote
+            </Button>
+          </div>
+        </ServiceModal>
+        <ServiceModal open={openService === 'pressureWashing'} onOpenChange={handleServiceClose} title="Power Washing Services">
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-cascade-green">
+              Recurring or One-Time Pressure Washing for Residential Buildings
+            </h3>
+            <p className="text-cascade-slate">
+              Power washing uses pressurized water to remove dirt, mold, mildew, algae, stains, and other contaminants from residential building exteriors. We service apartment complexes, condos, assisted living, senior living, and college dorms.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="p-4">
+                <h4 className="text-lg font-semibold mb-3 text-cascade-green">Reoccurring Power Washing</h4>
+                <p className="text-cascade-slate font-medium">Schedule Recurring Pressure Washing</p>
+                <p className="text-cascade-slate mt-2">
+                  Maintain your residential complex's appearance on a schedule. We'll set a rate and schedule based on your needs—then handle the rest so you don't have to think about it.
+                </p>
+              </Card>
+              <Card className="p-4">
+                <h4 className="text-lg font-semibold mb-3 text-cascade-green">One-Time Power Washing</h4>
+                <p className="text-cascade-slate font-medium">You Call Us When You Need Us</p>
+                <p className="text-cascade-slate mt-2">
+                  Great for properties unsure how often they need this service. Call us and we can be out within 72 hours or less—charged by your property's size and needs.
+                </p>
+              </Card>
+            </div>
+            <div className="bg-cascade-ivory p-6 rounded-lg">
+              <h4 className="text-lg font-semibold mb-3 text-cascade-green">What Can Be Power Washed?</h4>
+              <p className="text-cascade-slate mb-3">
+                Exterior buildings—plus patios, balconies, courtyards, parking lots, dumpster areas, playgrounds, sidewalks, and more.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
+                  <span>Patio/Balcony</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
+                  <span>Courtyard</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
+                  <span>Parking Lot</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
+                  <span>Dumpster Trash Area</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
+                  <span>Playground</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="text-cascade-green mr-2 h-5 w-5" />
+                  <span>Sidewalk</span>
+                </div>
+              </div>
+            </div>
+            <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4">
+              Request a Quote
+            </Button>
+          </div>
+        </ServiceModal>
 
         {/* Property Types Section */}
         <div className="mt-20 bg-cascade-ivory rounded-xl p-10">
