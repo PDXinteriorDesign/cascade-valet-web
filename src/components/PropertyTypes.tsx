@@ -9,7 +9,13 @@ const PropertyTypes = () => (
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="h-48 bg-cascade-green/20"></div>
+        <div className="h-48 overflow-hidden">
+          <img 
+            src="/lovable-uploads/da7f83cc-f5f7-4a4b-87da-b63169161e9e.png" 
+            alt="Apartment Complex" 
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="p-6">
           <h3 className="text-xl font-bold text-cascade-green mb-3">Apartments</h3>
           <p className="text-cascade-slate mb-6">
@@ -33,7 +39,13 @@ const PropertyTypes = () => (
         </div>
       </div>
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="h-48 bg-cascade-green/20"></div>
+        <div className="h-48 overflow-hidden">
+          <img 
+            src="/lovable-uploads/1066462b-52a9-4848-a1a5-641162492cc7.png" 
+            alt="Townhomes & Multi-Family" 
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="p-6">
           <h3 className="text-xl font-bold text-cascade-green mb-3">Townhomes & Multi-Family</h3>
           <p className="text-cascade-slate mb-6">
