@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Trash, Home, CheckCircle, Truck, Sparkles } from "lucide-react";
@@ -400,9 +399,9 @@ const Services = () => {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-48 bg-cascade-green/20"></div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-cascade-green mb-3">College Residents</h3>
+                <h3 className="text-xl font-bold text-cascade-green mb-3">Townhomes & Multi-Family</h3>
                 <p className="text-cascade-slate mb-6">
-                  Student Housing and Campus Dorm Communities
+                  Gated Communities, Townhouse Complexes, and Mixed-Use Residential Developments
                 </p>
                 <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
                   Get a Quote
