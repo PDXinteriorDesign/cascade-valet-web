@@ -25,10 +25,10 @@ const Testimonial = () => {
               "w-12 h-12 bg-cascade-green/20 rounded-full flex items-center justify-center text-cascade-green font-bold",
               "mr-4"
             )}>
-              JD
+              SR
             </div>
             <div className="text-left">
-              <p className="font-bold text-cascade-green">Jane Doe</p>
+              <p className="font-bold text-cascade-green">Sarah Reynolds</p>
               <p className="text-cascade-slate text-sm">Property Manager, Cedar Heights Apartments</p>
             </div>
           </div>
