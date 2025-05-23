@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 
@@ -20,7 +21,10 @@ const PropertyTypes = () => (
           <p className="text-cascade-slate mb-6">
             Multi-Family Apartment Complexes
           </p>
-          <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
+          <Button 
+            className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white"
+            onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request for Apartment Complex'}
+          >
             Get a Quote
           </Button>
         </div>
@@ -38,7 +42,10 @@ const PropertyTypes = () => (
           <p className="text-cascade-slate mb-6">
             Gated Communities, Townhouse Complexes, and Mixed-Use Residential Developments
           </p>
-          <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
+          <Button 
+            className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white"
+            onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request for Townhomes/Multi-Family Property'}
+          >
             Get a Quote
           </Button>
         </div>
@@ -50,7 +57,10 @@ const PropertyTypes = () => (
           <p className="text-cascade-slate mb-6">
             Assisted Living Communities, Hospice Centers, and Senior Living
           </p>
-          <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
+          <Button 
+            className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white"
+            onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request for Senior Living Community'}
+          >
             Get a Quote
           </Button>
         </div>

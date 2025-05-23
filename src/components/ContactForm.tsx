@@ -3,6 +3,26 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 
 const ContactForm = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name');
+    const property = formData.get('property');
+    const email = formData.get('email');
+    const units = formData.get('units');
+    const message = formData.get('message');
+    
+    const emailBody = `
+Name: ${name}
+Property Name: ${property}
+Email: ${email}
+Number of Units: ${units}
+Additional Information: ${message || 'None provided'}
+    `;
+    
+    window.location.href = `mailto:info@cascadebinbutlers.com?subject=Free Trial Request from ${name}&body=${encodeURIComponent(emailBody)}`;
+  };
+
   return (
     <section className="py-20 bg-cascade-ivory">
       <div className="container mx-auto px-4 md:px-6">
@@ -17,7 +37,7 @@ const ContactForm = () => {
             </p>
           </div>
           
-          <form className="bg-white rounded-lg shadow-lg p-8">
+          <form className="bg-white rounded-lg shadow-lg p-8" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name Field */}
               <div>
@@ -30,6 +50,7 @@ const ContactForm = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cascade-green"
                   required
                 />
@@ -46,6 +67,7 @@ const ContactForm = () => {
                 <input
                   type="text"
                   id="property"
+                  name="property"
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cascade-green"
                   required
                 />
@@ -62,6 +84,7 @@ const ContactForm = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cascade-green"
                   required
                 />
@@ -78,6 +101,7 @@ const ContactForm = () => {
                 <input
                   type="number"
                   id="units"
+                  name="units"
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cascade-green"
                   required
                 />
@@ -94,6 +118,7 @@ const ContactForm = () => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={4}
                 className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cascade-green"
               ></textarea>

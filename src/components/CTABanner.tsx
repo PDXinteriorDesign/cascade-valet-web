@@ -16,6 +16,7 @@ const CTABanner = () => {
         <Button
           size="lg"
           className="bg-white hover:bg-cascade-ivory text-cascade-green font-bold py-3 px-8 text-lg"
+          onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Free Trial Request'}
         >
           Get Started
         </Button>

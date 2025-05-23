@@ -40,8 +40,8 @@ const Footer = () => {
             <address className="not-italic">
               <p className="mb-2">Vancouver, WA</p>
               <p className="mb-2">
-                <a href="tel:+13605551234" className="hover:text-cascade-ivory transition-colors">
-                  (360) 555-1234
+                <a href="tel:+15032085299" className="hover:text-cascade-ivory transition-colors">
+                  (503) 208-5299
                 </a>
               </p>
               <p>
