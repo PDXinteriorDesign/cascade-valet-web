@@ -53,7 +53,7 @@ const PropertyTypes = () => (
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="h-48 overflow-hidden">
           <img 
-            src="/lovable-uploads/c319eee7-53f2-4030-8b9e-76c9229cbdd3.png" 
+            src="/lovable-uploads/e6c3b3e3-01ad-40df-809a-76c6a6063613.png" 
             alt="Senior celebrating with a birthday cake, representing the joy and community spirit in senior living communities" 
             className="w-full h-full object-cover"
           />
