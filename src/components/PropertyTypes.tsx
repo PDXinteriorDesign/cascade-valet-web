@@ -51,7 +51,13 @@ const PropertyTypes = () => (
         </div>
       </div>
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="h-48 bg-cascade-green/20"></div>
+        <div className="h-48 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=400&h=300&fit=crop" 
+            alt="Senior living community with comfortable and accessible residential spaces designed for elderly residents" 
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="p-6">
           <h3 className="text-xl font-bold text-cascade-green mb-3">Senior Living</h3>
           <p className="text-cascade-slate mb-6">
