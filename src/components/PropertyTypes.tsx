@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 
@@ -52,8 +53,8 @@ const PropertyTypes = () => (
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="h-48 overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop" 
-            alt="Senior living community with comfortable and accessible residential spaces designed for elderly residents" 
+            src="/lovable-uploads/c319eee7-53f2-4030-8b9e-76c9229cbdd3.png" 
+            alt="Senior celebrating with a birthday cake, representing the joy and community spirit in senior living communities" 
             className="w-full h-full object-cover"
           />
         </div>
