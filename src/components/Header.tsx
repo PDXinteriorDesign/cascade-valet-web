@@ -68,6 +68,7 @@ const Header = () => {
           <Button
             size="sm"
             className="bg-cascade-green hover:bg-cascade-darkGreen text-white ml-4"
+            onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Free Trial Request'}
           >
             Free Trial
           </Button>
@@ -131,6 +132,7 @@ const Header = () => {
             <Button
               size="sm"
               className="bg-cascade-green hover:bg-cascade-darkGreen text-white w-full"
+              onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Free Trial Request'}
             >
               Free Trial
             </Button>

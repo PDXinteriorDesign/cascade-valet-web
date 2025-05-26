@@ -67,6 +67,7 @@ const Services = () => {
             <Button
               size="lg"
               className="bg-cascade-green hover:bg-cascade-darkGreen text-white"
+              onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request'}
             >
               Request a Quote
             </Button>
@@ -229,7 +230,10 @@ const Services = () => {
                 </li>
               </ul>
             </div>
-            <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4">
+            <Button 
+              className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4"
+              onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request - Valet Trash Service'}
+            >
               Request a Quote
             </Button>
           </div>
@@ -254,7 +258,10 @@ const Services = () => {
                 <p className="text-cascade-slate">
                   Perfect for properties that only occasionally have unwanted items. We charge per item and haul junk away within 72 hours or less from your call.
                 </p>
-                <Button className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
+                <Button 
+                  className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white"
+                  onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request - One Time Pickup'}
+                >
                   Request Pickup
                 </Button>
               </Card>
@@ -264,7 +271,10 @@ const Services = () => {
                 <p className="text-cascade-slate">
                   If a vacated or evicted resident left belongings, Cascade Bin Butlers can help. Our crew removes all large furniture and ensures safe, complete disposal.
                 </p>
-                <Button className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white">
+                <Button 
+                  className="mt-4 w-full bg-cascade-green hover:bg-cascade-darkGreen text-white"
+                  onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request - Trash Out Service'}
+                >
                   Get a Quote
                 </Button>
               </Card>
@@ -294,7 +304,10 @@ const Services = () => {
                 Our service ensures dumpsters are always efficient and accessible: reducing your pickups and avoiding fees.
               </p>
             </div>
-            <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4">
+            <Button 
+              className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4"
+              onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request - Bulk Hauling Service'}
+            >
               Request a Quote
             </Button>
           </div>
@@ -361,7 +374,10 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <Button className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4">
+            <Button 
+              className="w-full bg-cascade-green hover:bg-cascade-darkGreen text-white mt-4"
+              onClick={() => window.location.href = 'mailto:info@cascadebinbutlers.com?subject=Quote Request - Pressure Washing Service'}
+            >
               Request a Quote
             </Button>
           </div>
